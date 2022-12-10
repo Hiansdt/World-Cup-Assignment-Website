@@ -1,0 +1,175 @@
+<table class="table table-dark table-striped">
+    <tr>
+      <th>Times</th>
+      <th></th>
+      <th title="Pontos">P</th>
+      <th title="Jogos">J</th>
+      <th title="Vitórias">V</th>
+      <th title="Empates">E</th>
+      <th title="Derrotas">D</th>
+      <th title="Gols Pró">GP</th>
+      <th title="Gols Contra">GC</th>
+      <th title="Saldo de Gols">SG</th>
+      <th title="Aproveitamento">%</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>
+        <img src="brasil.png" class="img-table" alt="">
+        Brasil
+      </td>
+      <td>45</td>
+      <td>17</td>
+      <td>14</td>
+      <td>3</td>
+      <td>0</td>
+      <td>40</td>
+      <td>5</td>
+      <td>35</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <img src="argentina.png" class="img-table" alt="">
+        Argentina
+      </td>
+      <td>39</td>
+      <td>17</td>
+      <td>11</td>
+      <td>6</td>
+      <td>0</td>
+      <td>27</td>
+      <td>8</td>
+      <td>19</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <img src="uruguai.png" class="img-table" alt="">
+        Uruguai
+      </td>
+      <td>28</td>
+      <td>18</td>
+      <td>8</td>
+      <td>4</td>
+      <td>6</td>
+      <td>22</td>
+      <td>22</td>
+      <td>0</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <img src="equador.png" class="img-table" alt="">
+        Equador
+      </td>
+      <td>26</td>
+      <td>18</td>
+      <td>7</td>
+      <td>5</td>
+      <td>6</td>
+      <td>27</td>
+      <td>19</td>
+      <td>8</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <img src="peru.png" class="img-table" alt="">
+        Peru
+      </td>
+      <td>24</td>
+      <td>18</td>
+      <td>7</td>
+      <td>3</td>
+      <td>8</td>
+      <td>19</td>
+      <td>22</td>
+      <td>-3</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <img src="colombia.png" class="img-table" alt="">
+        Colombia
+      </td>
+      <td>23</td>
+      <td>18</td>
+      <td>5</td>
+      <td>8</td>
+      <td>5</td>
+      <td>20</td>
+      <td>19</td>
+      <td>1</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <img src="chile.png" class="img-table" alt="">
+        Chile
+      </td>
+      <td>19</td>
+      <td>18</td>
+      <td>5</td>
+      <td>4</td>
+      <td>9</td>
+      <td>19</td>
+      <td>26</td>
+      <td>-7</td>
+      <td>35s</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <img src="paraguaia.png" class="img-table" alt="">
+        Paraguai
+      </td>
+      <td>16</td>
+      <td>18</td>
+      <td>3</td>
+      <td>7</td>
+      <td>8</td>
+      <td>12</td>
+      <td>26</td>
+      <td>-14</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>
+        <img src="bolivia.png" class="img-table" alt="">
+        Bolívia
+      </td>
+      <td>15</td>
+      <td>18</td>
+      <td>4</td>
+      <td>3</td>
+      <td>11</td>
+      <td>23</td>
+      <td>42</td>
+      <td>-19</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>
+        <img src="venezuela.png" class="img-table" alt="">
+        Venezuela
+      </td>
+      <td>10</td>
+      <td>18</td>
+      <td>3</td>
+      <td>1</td>
+      <td>14</td>
+      <td>14</td>
+      <td>34</td>
+      <td>-20</td>
+      <td>18</td>
+    </tr>
+</table>

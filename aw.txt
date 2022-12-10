@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tabela</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar fixed-top bg-light">
+      <div class="container-fluid">
+        <div class="titulo navbar-brand">
+          <img src="logo.png" alt="" class="logo-img" />
+          <h1>Copa Do Mundo 2022</h1>
+        </div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Notícias</a>
+          </li>
+          <li class="nav-item"></li>
+          <li class="nav-item">
+            <a class="nav-link" href="tabela.html"
+              >Classificação Eliminatórias</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tabelas"></div>
+
+    <div class="footer">
+      <p>
+        P - pontos/ J - Jogos/ V - Vitórias/ E - Empates/ D - Derrotas/ GP -
+        Gols Pró/ GC - Gols Contra/ SG - Saldo de Gols/ % - Aproveitamento
+      </p>
+    </div>
+
+    <script type="text/javascript">
+      let sigla;
+
+      let tabelas = document.querySelector(".tabelas");
+
+      function awaw() {
+        function gerarHeadTabela() {
+          return `
+        <tr>
+          <th>Time</th>
+          <th></th>
+        </tr>
+        `;
+        }
+
+        function gerarTabela() {
+          for (i = 1; i <= 8; i++) {
+            function letra() {
+              if (i === 1) {
+                return "A";
+              } else if (i === 2) {
+                return "B";
+              } else if (i === 3) {
+                return "C";
+              } else if (i === 4) {
+                return "D";
+              } else if (i === 5) {
+                return "E";
+              } else if (i === 6) {
+                return "F";
+              } else if (i === 7) {
+                return "G";
+              } else if (i === 8) {
+                return "H";
+              }
+            }
+          }
+        }
+
+        fetch("http://localhost:3000/times/")
+          .then((response) => {
+            return response.json();
+          })
+          .then((json) => {
+            gerarTabela();
+            sigla = json[1].pais;
+            tabelas.innerHTML += `
+          <div class="grupo">
+          <h3 class="gp">Grupo ${letra()}</h3>
+          <table class="table table-dark table-striped" id="${i}">
+            ${gerarHeadTabela()}
+            <tr class="pais${i}">
+              <td>${sigla}</td>
+            </tr>
+          </table>
+          </div>
+          `;
+          });
+      }
+
+      awaw();
+    </script>
+  </body>
+</html>

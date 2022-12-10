@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tabela</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+    <script src="./node_modules/translate/translate.min.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar fixed-top bg-light">
+      <div class="container-fluid">
+        <div class="titulo navbar-brand">
+          <img class="logo-img" src="logo.png" alt="" class="logo-img" />
+          <h1 class="aot">Copa Do Mundo 2022</h1>
+        </div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link aot" href="index.html">Notícias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aot" href="jogos.html">Jogos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aot" href="tabela.html">Classificações</a>
+          </li>
+          <li class="nav-item">
+            <label class="aot" for="lang">Linguagem</label>
+            <select class="linguas" name="lang" id="">
+              <option value="0">Português</option>
+              <option value="1">English</option>
+              <option value="2">Français</option>
+              <option value="3">عربي</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="aviso aot">
+      <p>Clique na bandeira para mais informações sobre o time!</p>
+    </div>
+
+    <div class="tabelas"></div>
+
+    <script type="text/javascript">
+      let sigla;
+
+      let tabelas = document.querySelector(".tabelas");
+
+      const times = [];
+
+      const grupos = {
+        A: [],
+        B: [],
+        C: [],
+        D: [],
+        E: [],
+        F: [],
+        G: [],
+        H: [],
+      };
+
+      for (time of json) {
+        times.push(time.pais);
+        if (time.grupo === "A") {
+          grupos.A.push(time.pais);
+          grupos.A.push(time.id);
+        } else if (time.grupo === "B") {
+          grupos.B.push(time.pais);
+          grupos.B.push(time.id);
+        } else if (time.grupo === "C") {
+          grupos.C.push(time.pais);
+          grupos.C.push(time.id);
+        } else if (time.grupo === "D") {
+          grupos.D.push(time.pais);
+          grupos.D.push(time.id);
+        } else if (time.grupo === "E") {
+          grupos.E.push(time.pais);
+          grupos.E.push(time.id);
+        } else if (time.grupo === "F") {
+          grupos.F.push(time.pais);
+          grupos.F.push(time.id);
+        } else if (time.grupo === "G") {
+          grupos.G.push(time.pais);
+          grupos.G.push(time.id);
+        } else if (time.grupo === "H") {
+          grupos.H.push(time.pais);
+          grupos.H.push(time.id);
+        }
+      }
+
+      let numerosCont = 0;
+
+      function contador() {
+        numerosCont++;
+        return numerosCont;
+      }
+
+      function paisesNosGrupos(cont) {
+        if (cont === 1) {
+          return `
+          <tr>
+          <td class="aot">${grupos.A[0]}       </td>
+          <td class="bandeira" id="${grupos.A[1]}"><img class="miniBand" src="${grupos.A[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.A[2]}</td>
+          <td class="bandeira" id="${grupos.A[3]}"><img class="miniBand" src="${grupos.A[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.A[4]}</td>
+          <td class="bandeira" id="${grupos.A[5]}"><img class="miniBand" src="${grupos.A[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.A[6]}</td>
+          <td class="bandeira" id="${grupos.A[7]}"><img class="miniBand" src="${grupos.A[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+
+        
+
+        } else if (cont === 2) {
+          return `
+          <tr>
+          <td class="aot">${grupos.B[0]}</td>
+          <td class="bandeira" id="${grupos.B[1]}"><img class="miniBand" src="${grupos.B[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.B[2]}</td>
+          <td class="bandeira" id="${grupos.B[3]}"><img class="miniBand" src="${grupos.B[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.B[4]}</td>
+          <td class="bandeira" id="${grupos.B[5]}"><img class="miniBand" src="${grupos.B[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.B[6]}</td>
+          <td class="bandeira" id="${grupos.B[7]}"><img class="miniBand" src="${grupos.B[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+        } else if (cont === 3) {
+          return `
+          <tr>
+          <td class="aot">${grupos.C[0]}</td>
+          <td class="bandeira" id="${grupos.C[1]}"><img class="miniBand" src="${grupos.C[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.C[2]}</td>
+          <td class="bandeira" id="${grupos.C[3]}"><img class="miniBand" src="${grupos.C[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.C[4]}</td>
+          <td class="bandeira" id="${grupos.C[5]}"><img class="miniBand" src="${grupos.C[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.C[6]} </td>
+          <td class="bandeira" id="${grupos.C[7]}"><img class="miniBand" src="${grupos.C[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+        } else if (cont === 4) {
+          return `
+          <tr>
+          <td class="aot">${grupos.D[0]}</td>
+          <td class="bandeira" id="${grupos.D[1]}"><img class="miniBand" src="${grupos.D[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.D[2]}     </td>
+          <td class="bandeira" id="${grupos.D[3]}"><img class="miniBand" src="${grupos.D[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.D[4]}</td>
+          <td class="bandeira" id="${grupos.D[5]}"><img class="miniBand" src="${grupos.D[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.D[6]}</td>
+          <td class="bandeira" id="${grupos.D[7]}5"><img class="miniBand" src="${grupos.D[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+        } else if (cont === 5) {
+          return `
+          <tr>
+          <td class="aot">${grupos.E[0]}     </td>
+          <td class="bandeira" id="${grupos.E[1]}"><img class="miniBand" src="${grupos.E[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.E[2]}</td>
+          <td class="bandeira" id="${grupos.E[3]}"><img class="miniBand" src="${grupos.E[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.E[4]}</td>
+          <td class="bandeira" id="${grupos.E[5]}"><img class="miniBand" src="${grupos.E[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.E[6]}</td>
+          <td class="bandeira" id="${grupos.E[7]}"><img class="miniBand" src="${grupos.E[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+        } else if (cont === 6) {
+          return `
+          <tr>
+          <td class="aot">${grupos.F[0]}</td>
+          <td class="bandeira" id="${grupos.F[1]}"><img class="miniBand" src="${grupos.F[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.F[2]}</td>
+          <td class="bandeira" id="${grupos.F[3]}"><img class="miniBand" src="${grupos.F[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.F[4]}</td>
+          <td class="bandeira" id="${grupos.F[5]}"><img class="miniBand" src="${grupos.F[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.F[6]}       </td>
+          <td class="bandeira" id="${grupos.F[7]}"><img class="miniBand" src="${grupos.F[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+        } else if (cont === 7) {
+          return `
+          <tr>
+          <td class="aot">${grupos.G[0]}</td>
+          <td class="bandeira" id="${grupos.G[1]}"><img class="miniBand" src="${grupos.G[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.G[2]}     </td>
+          <td class="bandeira" id="${grupos.G[3]}"><img class="miniBand" src="${grupos.G[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.G[4]}</td>
+          <td class="bandeira" id="${grupos.G[5]}"><img class="miniBand" src="${grupos.G[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.G[6]}</td>
+          <td class="bandeira" id="${grupos.G[7]}"><img class="miniBand" src="${grupos.G[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+        } else if (cont === 8) {
+          return `
+          <tr>
+          <td class="aot">${grupos.H[0]}</td>
+          <td class="bandeira" id="${grupos.H[1]}"><img class="miniBand" src="${grupos.H[0]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.H[2]}  </td>
+          <td class="bandeira" id="${grupos.H[3]}"><img class="miniBand" src="${grupos.H[2]}.png"></td>
+          <td class="aot">Sim</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.H[4]}</td>
+          <td class="bandeira" id="${grupos.H[5]}"><img class="miniBand" src="${grupos.H[4]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+          <tr>
+          <td class="aot">${grupos.H[6]}</td>
+          <td class="bandeira" id="${grupos.H[7]}"><img class="miniBand" src="${grupos.H[6]}.png"></td>
+          <td class="aot">Não</td>
+          </tr>
+        `;
+        }
+      }
+
+      let h = 0;
+
+      function tables() {
+        function gerarHeadTabela() {
+          return `
+        <tr>
+          <th class="aot">Time</th>
+          <th class="aot">Bandeira</th>
+          <th class="aot">Classificado</th>
+        </tr>
+        `;
+        }
+
+        function gerarTabela() {
+          function corpoLetra() {
+            for (i = 1; i <= 8; i++) {
+              function letra() {
+                if (i === 1) {
+                  return "A";
+                } else if (i === 2) {
+                  return "B";
+                } else if (i === 3) {
+                  return "C";
+                } else if (i === 4) {
+                  return "D";
+                } else if (i === 5) {
+                  return "E";
+                } else if (i === 6) {
+                  return "F";
+                } else if (i === 7) {
+                  return "G";
+                } else if (i === 8) {
+                  return "H";
+                }
+              }
+
+              corpo();
+            }
+
+            function corpo() {
+              h++;
+
+              tabelas.innerHTML += `
+            <div class="grupo">
+                <h3 class="gp${contador()} aot">Grupo ${letra()}</h3>
+                <table class="table table-dark table-striped">
+                ${gerarHeadTabela()}
+                ${paisesNosGrupos(h)}
+                </table>
+            </div>
+          `;
+            }
+          }
+
+          corpoLetra();
+        }
+
+        gerarTabela();
+      }
+
+      tables();
+
+      const bandeiras = document.querySelectorAll(".miniBand");
+      const bandeirasTd = document.querySelectorAll(".bandeira");
+
+      for (k = 0; k < bandeiras.length; k++) {
+        let band = bandeiras[k];
+        let bandTd = bandeirasTd[k];
+        band.addEventListener("click", ()=> {
+          infoTime(bandTd.id);
+        })
+      }
+
+      function infoTime(id) {
+        tabelas.style.display = "none";
+        document.querySelector(".aviso").style.display = "none"
+
+        let quadro = document.createElement("div");
+        let voltar = document.createElement("button");
+        let grupoTime = document.createElement("p");
+        let nomeSigla = document.createElement("div");
+        let bandeira = document.createElement("img");
+        let pessoas = document.createElement("div");
+        quadro.className = "quadro";
+
+        voltar.innerHTML = "VOLTAR";
+        voltar.className = "button button-danger aot"
+        voltar.style.fontSize = "xx-large";
+        voltar.style.fontWeight = "bold";
+        voltar.style.backgroundColor = "black";
+        voltar.style.color = "green";
+        voltar.style.border = "2px solid green";
+        voltar.style.marginTop = "20px";
+        voltar.style.borderRadius = "10px";
+        voltar.style.width = "200px";
+
+        grupoTime.innerHTML = "Grupo " + json[id].grupo;
+        grupoTime.style = `
+          border: 1px solid white;
+          font-size: x-large;
+          margin-top: 30px;
+          background-color: black;
+          width: 150px;
+          text-align: center;
+        `
+        grupoTime.className = "aot";
+
+        nomeSigla.innerHTML = `
+          <p class="aot">${json[id].pais} - ${json[id].sigla}</p>
+        `
+
+        nomeSigla.style = `
+          border: 1px solid white;
+          font-size: x-large;
+          margin-top: 30px;
+          background-color: black;
+          width: 250px;
+          text-align: center;
+        `
+
+        bandeira.src = json[id].pais + ".png";
+
+        let j = 0;
+        let m = 0;
+        let u = 0;
+        let p = 0;
+
+        function jogadores(tipo) {
+          if (tipo === "goleiro") {
+            j++
+            if(json[id].jogadores.goleiros[j]) {
+            return `<p class="nomes">${json[id].jogadores.goleiros[j]}</p>`;
+            } else return "";
+          } else if (tipo === "zagueiro") {
+            m++
+            if(json[id].jogadores.zagueiros[m]) {
+            return `<p class="nomes">${json[id].jogadores.zagueiros[m]}</p>`;
+            } else return "";
+          } else if (tipo === "meiCamp") {
+            u++
+            if(json[id].jogadores.meioscampos[u]) {
+              return `<p class="nomes">${json[id].jogadores.meioscampos[u]}</p>`;
+            } else return "";
+          } else if (tipo === "atacante") {
+            p++
+            if(json[id].jogadores.atacantes[p]) {
+              return `<p class="nomes">${json[id].jogadores.atacantes[p]}</p>`;
+            } else return "";
+          }
+        }
+
+        pessoas.innerHTML = `
+          <p class="funcoes aot">Técnico:</p>
+          <p class="nomes">${json[id].jogadores.tecnico}</p>
+          
+          <p class="funcoes aot">Goleiros:</p>
+          ${jogadores("goleiro")}
+          ${jogadores("goleiro")}
+          ${jogadores("goleiro")}
+          ${jogadores("goleiro")}
+          ${jogadores("goleiro")}
+
+          <p class="funcoes aot">Zagueiros:</p>
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+          ${jogadores("zagueiro")}
+
+
+          <p class="funcoes aot">Meios-Campos:</p>
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+          ${jogadores("meiCamp")}
+
+          <p class="funcoes aot">Atacantes</p>
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+          ${jogadores("atacante")}
+        `
+
+        pessoas.style.textAlign = "center";
+        pessoas.style.marginTop = "10px";
+
+        document.getElementsByTagName("body")[0].appendChild(quadro);
+        quadro.style.position = "absolute";
+        quadro.appendChild(voltar);
+        quadro.appendChild(grupoTime);
+        quadro.appendChild(nomeSigla);
+        quadro.appendChild(bandeira);
+        quadro.appendChild(pessoas);
+
+        voltar.addEventListener("click", ()=> {
+          quadro.remove();
+          tabelas.style.display = "block";
+          document.querySelector(".aviso").style.display = "block"
+        })
+      }
+
+      const txt = document.getElementsByClassName("aot");
+
+      const traduzir =
+        async(texto, elemento, linguaDe, linguaPara) => {
+          translate.from = linguaDe;
+          const traduzido = await translate(texto, linguaPara);
+          elemento.innerHTML = traduzido;
+        };
+
+      let linguas = document.querySelector(".linguas");
+
+      linguas.addEventListener("change", alterarLingua);
+
+      let linguAt = "pt";
+
+      function alterarLingua() {
+        if(linguas.value === "0") {
+          for(n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "pt");
+          }
+          linguAt = "pt";
+        } else if (linguas.value === "1") {
+          for(n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "en")
+          }
+          linguAt = "en";
+        } else if (linguas.value === "2") {
+          for(n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "fr");
+          }
+          linguAt = "fr"
+        } else if(linguas.value === "3") {
+          for (n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "ar");
+          }
+          linguAt = "ar";
+        }
+
+      };
+
+      alterarLingua();
+    </script>
+  </body>
+</html>

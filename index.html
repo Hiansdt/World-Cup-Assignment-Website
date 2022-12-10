@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./node_modules/translate/translate.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Notícias</title>
+  </head>
+  <body>
+    <div class="navbar fixed-top bg-light">
+      <div class="container-fluid">
+        <div class="titulo navbar-brand">
+          <img class="logo-img" src="logo.png" alt="" class="logo-img" />
+          <h1 class="aot">Copa Do Mundo 2022</h1>
+        </div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link aot" href="index.html">Notícias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aot" href="jogos.html">Jogos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aot" href="tabela.html">Classificações</a>
+          </li>
+          <li class="nav-item">
+            <label class="aot" for="lang">Linguagem</label>
+            <select class="linguas" name="lang" id="">
+              <option value="0">Português</option>
+              <option value="1">English</option>
+              <option value="2">Français</option>
+              <option value="3">عربي</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      id="carouselExampleControls"
+      class="carousel slide container-fluid"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="slide1.png" class="d-block mx-auto img-slide" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="slide2.png" class="d-block mx-auto img-slide" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="copa.webp" class="d-block mx-auto img-slide" alt="..." />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="noticias">
+      <div class="noticia">
+        <img src="not1.jpg" alt="" class="noticia-img" />
+        <h3 class="aot">Espanha derrota Costa Rica em massacre de 7x0.</h3>
+      </div>
+      <div class="noticia">
+        <img src="mascote.jpeg" alt="" class="noticia-img" />
+        <h3 class="aot">Mascote da Copa do Mundo 2022 é um pano de prato.</h3>
+      </div>
+      <div class="noticia">
+        <img src="alemanhaejapao.jpeg" alt="" class="noticia-img" />
+        <h3 class="aot">
+          Japão consegue surpreendente vitória contra Alemanha com placar de
+          2x1.
+        </h3>
+      </div>
+    </div>
+
+    <script>
+      const txt = document.getElementsByClassName("aot");
+
+      const traduzir = async (texto, elemento, linguaDe, linguaPara) => {
+        translate.from = linguaDe;
+        const traduzido = await translate(texto, linguaPara);
+        elemento.innerHTML = traduzido;
+      };
+
+      let linguas = document.querySelector(".linguas");
+
+      linguas.addEventListener("change", alterarLingua);
+
+      let linguAt = "pt";
+
+      function alterarLingua() {
+        if (linguas.value === "0") {
+          for (n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "pt");
+          }
+          linguAt = "pt";
+        } else if (linguas.value === "1") {
+          for (n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "en");
+          }
+          linguAt = "en";
+        } else if (linguas.value === "2") {
+          for (n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "fr");
+          }
+          linguAt = "fr";
+        } else if (linguas.value === "3") {
+          for (n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "ar");
+          }
+          linguAt = "ar";
+        }
+      }
+
+      alterarLingua();
+    </script>
+  </body>
+</html>

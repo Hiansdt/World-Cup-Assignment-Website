@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Jogos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+    <script src="./node_modules/translate/translate.min.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar fixed-top bg-light">
+      <div class="container-fluid">
+        <div class="titulo navbar-brand">
+          <img class="logo-img" src="logo.png" alt="" class="logo-img" />
+          <h1 class="aot">Copa Do Mundo 2022</h1>
+        </div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link aot" href="index.html">Notícias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aot" href="jogos.html">Jogos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link aot" href="tabela.html">Classificações</a>
+          </li>
+          <li class="nav-item">
+            <label class="aot" for="lang">Linguagem</label>
+            <select class="linguas" name="lang" id="">
+              <option value="0">Português</option>
+              <option value="1">English</option>
+              <option value="2">Français</option>
+              <option value="3">عربي</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="main"></main>
+
+    <script>
+      let main = document.querySelector(".main");
+
+      function criarCard(data, dia, jogos) {
+        return `
+                 <div class="card">
+                    <h2 style="background-color:grey; color: white; border:1px solid white; width: max-content;">${data} - <span class="aot">${dia}</span></h2>
+                    <ul style="padding: 0px;">
+                    ${jogos}
+                    </ul>
+                </div>`;
+      }
+
+      function criarJogo(pais1, sigla1, horario, pais2, sigla2, pontos1, pontos2) {
+        return `
+            <li style="display:flex;">
+                <img src="${pais1}.png">
+                <div class="mx-2"><p>${sigla1}</p><p class="text-center">${pontos1}</p></div>
+                <p class="fw-bold">${horario}</p>
+                <div class="mx-2"><p>${sigla2}</p><p class="text-center">${pontos2}</p></div>
+                <img src="${pais2}.png">
+            </li>
+        `
+      }
+
+      main.innerHTML = `
+      ${criarCard("20/11", "Domingo",
+            criarJogo('Catar', 'QAT', '13:00', 'Equador', 'ECU', '0', '2'))}
+        ${criarCard("21/11", "Segunda-Feira",
+            criarJogo('Inglaterra', 'ENG', '10:00', 'Irã', 'IRN', '6', '2') +
+            criarJogo('Senegal', 'SEN', '13:00', 'Holanda', 'HOL', '0', '2') +
+            criarJogo('Estados Unidos', 'USA', '16:00', 'Gales', 'WAL', '1', '1'))}
+        ${criarCard("22/11", "Terça-Feira",
+            criarJogo('Argentina', 'ARG', '07:00', 'Arábia Saudita', 'KSA', '1', '2') +
+            criarJogo('Dinamarca', 'DEN', '10:00', 'Tunísia', 'TUN', '0', '0') +
+            criarJogo('México', 'MEX', '13:00', 'Polônia', 'POL', '0', '0') +
+            criarJogo('França', 'FRA', '16:00', 'Austrália', 'AUS', '4', '1'))}
+        ${criarCard("23/11", "Quarta-Feira",
+            criarJogo('Marrocos', 'MAR', '07:00', 'Croácia', 'CRO', '0', '0') +
+            criarJogo('Alemanha', 'GER', '10:00', 'Japão', 'JPN', '1', '2') +
+            criarJogo('Espanha', 'ESP', '13:00', 'Costa Rica', 'CRC', '7', '0') +
+            criarJogo('Bélgica', 'BEL', '16:00', 'Canadá', 'CAN', '1', '0'))}
+        ${criarCard("24/11", "Quinta-Feira",
+            criarJogo('Suíça', 'SUI', '07:00', 'Camarões', 'CMR', '1', '0') +
+            criarJogo('Uruguai', 'URU', '10:00', 'Coreia do Sul', 'KOR', '0', '0') +
+            criarJogo('Portugal', 'POR', '13:00', 'Gana', 'GHA', '3', '2') +
+            criarJogo('Brasil', 'BRA', '16:00', 'Sérvia', 'SRB', '2', '0'))}
+        ${criarCard("25/11", "Sexta-Feira",
+            criarJogo('Gales', 'WAL', '07:00', 'Irã', 'IRN', '0', '2') +
+            criarJogo('Catar', 'QAT', '10:00', 'Senegal', 'SEN', '1', '3') +
+            criarJogo('Holanda', 'HOL', '13:00', 'Equador', 'ECU', '1', '1') +
+            criarJogo('Inglaterra', 'ENG', '16:00', 'Estados Unidos', 'USA', '0', '0'))}
+        ${criarCard("26/11", "Sábado",
+            criarJogo('Tunísia', 'TUN', '07:00', 'Austrália', 'AUS', '0', '1') +
+            criarJogo('Polônia', 'POL', '10:00', 'Arábia Saudita', 'KSA', '2', '0') +
+            criarJogo('França', 'FRA', '13:00', 'Dinamarca', 'DEN', '2', '1') +
+            criarJogo('Argentina', 'ARG', '16:00', 'México', 'MEX', '2', '0'))}
+        ${criarCard("27/11", "Domingo",
+            criarJogo('Japão', 'JPN', '07:00', 'Costa Rica', 'CRC', '0', '1') +
+            criarJogo('Bélgica', 'BEL', '10:00', 'Marrocos', 'MAR', '0', '2') +
+            criarJogo('Croácia', 'CRO', '13:00', 'Canadá', 'CAN', '4', '1') +
+            criarJogo('Espanha', 'ESP', '16:00', 'Alemanha', 'GER', '1', '1'))}
+        ${criarCard("28/11", "Segunda-Feira",
+            criarJogo('Camarões', 'CMR', '07:00', 'Sérvia', 'SRB', '3', '3') +
+            criarJogo('Coreia do Sul', 'KOR', '10:00', 'Gana', 'GHA', '2', '3') +
+            criarJogo('Brasil', 'BRA', '13:00', 'Suíça', 'SUI', '1', '0') +
+            criarJogo('Portugal', 'POR', '16:00', 'Uruguai', 'URU', '2', '0'))}
+        ${criarCard("29/11", "Terça-Feira",
+            criarJogo('Equador', 'ECU', '12:00', 'Senegal', 'SEN', '1', '2') +
+            criarJogo('Holanda', 'HOL', '12:00', 'Catar', 'QAT', '2', '0') +
+            criarJogo('Irã', 'IRN', '16:00', 'Estados Unidos', 'USA', '0', '1') +
+            criarJogo('Gales', 'WAL', '16:00', 'Inglaterra', 'ENG', '0', '3'))}
+        ${criarCard("30/11", "Quarta-Feira",
+            criarJogo('Tunísia', 'TUN', '12:00', 'França', 'FRA', '1', '0') +
+            criarJogo('Austrália', 'AUS', '12:00', 'Dinamarca', 'DEN', '1', '0') +
+            criarJogo('Polônia', 'POL', '16:00', 'Argentina', 'ARG', '0', '2') +
+            criarJogo('Arábia Saudita', 'KSA', '16:00', 'México', 'MEX', '1', '2'))}
+        ${criarCard("01/12", "Quinta-Feira",
+            criarJogo('Croácia', 'CRO', '12:00', 'Bélgica', 'BEL', '0', '0') +
+            criarJogo('Canadá', 'CAN', '12:00', 'Marrocos', 'MAR', '1', '2') +
+            criarJogo('Japão', 'JPN', '16:00', 'Espanha', 'ESP', '2', '1') +
+            criarJogo('Costa Rica', 'CRC', '16:00', 'Alemanha', 'GER', '2', '4'))}
+        ${criarCard("02/12", "Sexta-Feira",
+            criarJogo('Coreia do Sul', 'KOR', '12:00', 'Portugal', 'POR', '2', '1') +
+            criarJogo('Gana', 'GHA', '12:00', 'Uruguai', 'URU', '0', '2') +
+            criarJogo('Sérvia', 'SRB', '16:00', 'Suíça', 'SUI', '2', '3') +
+            criarJogo('Brasil', 'BRA', '16:00', 'Camarões', 'CMR', '0', '1'))}
+        ${criarCard("03/12", "Sábado",
+            criarJogo('Holanda', 'HOL', '12:00', 'Estados Unidos', 'USA', '3', '1') +
+            criarJogo('Argentina', 'ARG', '16:00', 'Austrália', 'AUS', '2', '1'))}
+        ${criarCard("04/12", "Domingo",
+            criarJogo('França', 'FRA', '12:00', 'Polônia', 'POL', '3', '1') +
+            criarJogo('Inglaterra', 'ENG', '16:00', 'Senegal', 'SEN', '3', '0'))}
+        ${criarCard("05/12", "Segunda-Feira",
+        criarJogo('Japão', 'JAP', '12:00', 'Croácia', 'CRO', '1 (1)', '1 (3)') +
+        criarJogo('Brasil', 'BRA', '16:00', 'Coreia do Sul', 'KOR', '4', '1'))}
+        ${criarCard("06/12", "Terça-Feira",
+            criarJogo('Marrocos', 'MAR', '12:00', 'Espanha', 'ESP', '0 (3)', '0 (0)') +
+            criarJogo('Portugal', 'POR', '16:00', 'Suíça', 'SUI', '6', '1'))}
+        ${criarCard("09/12", "Sexta-Feira",
+        criarJogo('Croácia', 'CRO', '12:00', 'Brasil', 'BRA', '', '') +
+        criarJogo('Holanda', 'HOL', '16:00', 'Argentina', 'ARG', '', ''))}
+        ${criarCard("10/12", "Sábado",
+            criarJogo('Marrocos', 'MAR', '12:00', 'Portugal', 'POR', '', '') +
+            criarJogo('França', 'FRA', '16:00', 'Inglaterra', 'ENG', '', ''))}
+        ${criarCard("13/12", "Terça-Feira",
+            criarJogo('empty', '', '16:00', 'empty', '', '', ''))}
+        ${criarCard("14/12", "Quarta-Feira",
+            criarJogo('empty', '', '16:00', 'empty', '', '', ''))}
+        ${criarCard("17/12", "Sábado",
+            criarJogo('empty', '', '12:00', 'empty', '', '', ''))}
+        ${criarCard("18/12", "Domingo",
+            criarJogo('empty', '', '12:00', 'empty', '', '', ''))}
+      `
+
+      const txt = document.getElementsByClassName("aot");
+
+      const traduzir =
+        async(texto, elemento, linguaDe, linguaPara) => {
+          translate.from = linguaDe;
+          const traduzido = await translate(texto, linguaPara);
+          elemento.innerHTML = traduzido;
+        };
+
+      let linguas = document.querySelector(".linguas");
+
+      linguas.addEventListener("change", alterarLingua);
+
+      let linguAt = "pt";
+
+      function alterarLingua() {
+        if(linguas.value === "0") {
+          for(n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "pt");
+          }
+          linguAt = "pt";
+        } else if (linguas.value === "1") {
+          for(n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "en")
+          }
+          linguAt = "en";
+        } else if (linguas.value === "2") {
+          for(n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "fr");
+          }
+          linguAt = "fr"
+        } else if(linguas.value === "3") {
+          for (n of txt) {
+            traduzir(n.innerHTML, n, linguAt, "ar");
+          }
+          linguAt = "ar";
+        }
+
+      };
+
+      alterarLingua();
+    </script>
+  </body>
+</html>
